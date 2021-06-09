@@ -1,0 +1,90 @@
+<div class="content animated fadeIn">
+    <!-- <h4>Transacciones</h4> -->
+    <!-- <app-buscador></app-buscador> -->
+    <div class="row  justify-content-center">
+        <div class="column  mt-3 col-lg-8">
+            <!--Consulta-->
+            <div class="card">
+                <div class="card-header">
+                    <h4>Consulta</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="consultaForm">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="cliente" class="form-label">Cliente</label>
+                                        <select formControlName="cliente" class="form-select" aria-label="Default select example" [ngClass]="{ 'is-invalid border-red': submitted && form.cliente.errors }">
+                                            <option selected disabled hidden>Seleccione el cliente</option>
+                                            <option *ngFor="let cliente of listaClientes" value="{{ cliente.id }}">{{ cliente.username }} - {{cliente.razon_social }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="numero" class="form-label">Número</label>
+                                        <input type="text" formControlName="numero" digitOnly maxlength="5" inputmode="numeric" placeholder="Número de la consulta" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="estado" class="form-label">Estado</label>
+                                        <select formControlName="estado" class="form-select" aria-label="Default select example">
+                                            <option selected disabled hidden>Seleccione el estado</option>
+                                            <option *ngFor="let estado of estados" value="{{ estado.id }}">{{ estado.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="medioPago" class="form-label">Medio de pago</label>
+                                        <select formControlName="medioPago" class="form-select" aria-label="Default select example">
+                                            <option selected disabled hidden>Seleccione el medio de pago</option>
+                                            <option *ngFor="let pago of mediosPago"  value="{{ pago.id }}">{{ pago.marca }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12 ">
+                                    <div class="mb-3 ">
+                                        <div class="form-group row ">
+                                            <label class="form-label ">Desde la fecha</label>
+                                            <div class="col-12 ">
+                                                <input (change)="dateChange($event)" (focus)="datepicker()" (blur)="datepicker()" id="from" formControlName="desdeCreacion" class="input form-control" type="date" [ngClass]="{ 'is-invalid': submitted && form.desdeCreacion.errors }">
+                                                <div *ngIf="submitted && dateIsSelected && form.desdeCreacion.errors" class="invalid-feedback">
+                                                    <div *ngIf="form.desdeCreacion.errors.required">Este campo es necesario</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12 ">
+                                    <div class="mb-3 ">
+                                        <div class="form-group row ">
+                                            <label class="form-label ">Hasta la fecha</label>
+                                            <div class="col-12 ">
+                                                <input (change)="dateChange($event)" (blur)="datepicker()" id="to" formControlName="hastaCreacion" class="input form-control " type="date" [ngClass]="{ 'is-invalid': submitted && form.hastaCreacion.errors }">
+                                                <div *ngIf="submitted && dateIsSelected && form.hastaCreacion.errors" class="invalid-feedback">
+                                                    <div *ngIf="form.hastaCreacion.errors.required">Este campo es necesario</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="buttons ">
+                            <button type="button " class="btn btn-white" (click)="limpiar()">Limpiar</button>
+                            <!-- <button type="button" (click)="buscarConsulta() " class="btn btn-green ml-15 ">Buscar</button> -->
+                            <button type="button" (click)="onSubmit(consultaForm.value) " class="btn btn-green ml-15 ">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<swal #mensajeSwal title icon confirmButtonText cancelButtonText showCancelButton cancelButtonColor confirmButtonColor confirm></swal>

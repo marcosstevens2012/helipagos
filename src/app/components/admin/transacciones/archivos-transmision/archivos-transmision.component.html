@@ -1,0 +1,80 @@
+<div class="material-progress-bar-div" *ngIf="progressbarActive">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="content animated fadeIn">
+    <div class="row justify-content-center">
+        <div class="column  mt-3 col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Subir Archivo</h4>                  
+                    
+                </div>
+                <div class="card-body">  
+                        <div class="row">
+                            <div [ngClass]="{'col-12': agencia == null}" *ngIf="agencia == null">
+                                <p>Seleccionar uno: </p>
+                            </div>
+                            <div [ngClass]="{'col-lg-4 col-md-6 col-sm-12 mt-2 alineacion': agencia == null}" *ngIf="agencia == 'rapipago' || agencia == null">
+                                <a [routerLink]="['rapipago']"><img class="rapipago" src="assets/img/logo-rapipago.svg" alt="Rapipago"></a>  
+                            </div>
+                            <div [ngClass]="{'col-lg-4 col-md-6 mt-2 alineacion': agencia == null}" *ngIf="agencia == 'pagofacil' || agencia == null">
+                                <a [routerLink]="['pagofacil']"><img class="pagofacil" src="assets/img/logo-pagofacil.svg" alt="Pago Fácil"></a>
+                            </div> 
+                            <div [ngClass]="{'col-lg-4 col-md-6 mt-2 alineacion': agencia == null}" *ngIf="agencia == 'provincianet' || agencia == null">
+                                <a [routerLink]="['provincianet']"><img class="provincianet" src="assets/img/logo-provincianet.svg" alt="Provincia Net"></a>
+                            </div> 
+                            <div [ngClass]="{'col-lg-4 col-md-6 mt-2 alineacion': agencia == null}" *ngIf="agencia == 'multipago' || agencia == null">
+                                <a [routerLink]="['multipago']"><img class="multipago" src="assets/img/logo-multipago.svg" alt="Multipago"></a>
+                            </div> 
+                            <div [ngClass]="{'col-lg-4 col-md-6 mt-2 alineacion': agencia == null}" *ngIf="agencia == 'bicaagil' || agencia == null">
+                                <a [routerLink]="['bicaagil']"><img class="bicaagil" src="assets/img/logo-bicaagil.svg" alt="Bica Ágil"></a>
+                            </div> 
+                            <div [ngClass]="{'col-lg-4 col-md-6 mt-2 alineacion': agencia == null}" *ngIf="agencia == 'ripsa' || agencia == null">
+                                <a [routerLink]="['ripsa']"><img class="ripsa" src="assets/img/logo-ripsa.svg" alt="Ripsa"></a>
+                            </div> 
+                            <div [ngClass]="{'col-lg-4 col-md-6 mt-2 alineacion': agencia == null}" *ngIf="agencia == 'cobroexpress' || agencia == null">
+                                <a [routerLink]="['cobroexpress']"><img class="ripsa" src="assets/img/logo-cobro-express.svg" alt="Cobro Express"></a>
+                            </div> 
+                            <div [ngClass]="{'col-lg-4 col-md-6 mt-2 alineacion': agencia == null}" *ngIf="agencia == 'prontopago' || agencia == null">
+                                <a [routerLink]="['prontopago']"><img class="ripsa" src="assets/img/logo-pronto-pago.svg" alt="Pronto Pago"></a>
+                            </div> 
+                        </div> 
+                    <form *ngIf="agencia" class="mt-2" [formGroup]="myForm" (ngSubmit)="enviar()" >         
+                        <div class="form-group">
+                            <label for="file">File</label>
+                            <input formControlName="file" id="file" type="file" class="form-control" [ngClass]="{'disabled': agencia == null}" (change)="seleccionarArchivo($event)">
+                        </div>
+                        <button class="btn buttons btn-green" type="submit">Subir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div *ngIf="displayedColumns" class="row content mt-5">
+        <app-tabla  [displayedColumns]="displayedColumns" [displayedColumnsSearch]="displayedColumnsSearch" [dataSource]="dataSource" [mensajeResultado]="mensajeResultado"></app-tabla>
+    </div> -->
+
+    <div *ngIf="displayedColumnsDetalles" class="container-detalee"  class="row content mt-5">
+        <app-tabla [indiceItems]="true"  [displayedColumns]="displayedColumnsDetalles" [displayedColumnsSearch]="displayedColumnsSearchDetalles" [dataSource]="dataSourceDetalles" [mensajeResultado]="mensajeResultadoDetalles"></app-tabla>
+        <div class="col-lg-12">
+            <button [ngClass]="{'disabled': btnActive == false}" class="btn buttons btn-green m-1" type="button" (click)="confirmar()">Confirmar</button>
+            <div class="btn buttons m-1">
+                Total: ${{ (totalImporte/100).toFixed(2) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Mensajes -->
+<swal #cancelSwal title="Cargar un archivo para subir." icon="warning" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal>
+<swal #okSwal title="Archivo enviado correctamente." icon="success" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal>
+<swal #failSwal title="Error de conexión." icon="warning" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal>
+<swal #sesionSwal title="Sesión expirada." icon="warning" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal>
+<swal #incorrectoSwal title="Archivo incorrecto." icon="warning" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal>
+
+
+
+

@@ -1,0 +1,46 @@
+
+<div class="material-progress-bar-div mb-3" *ngIf="loading">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<!-- <div class="text-center">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div> -->
+
+<div *ngIf="dataSource" class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12">
+        <app-buscador (valorBusqueda)="filtrar($event)"></app-buscador>
+    </div>
+    <div class="col-lg-4 col-md-2 col-sm-12 mb-lg-0 mb-md-3 mb-sm-3 auto">
+        <app-number-pagination (cantidad)="cargarItems($event)"></app-number-pagination>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 mb-lg-0 mb-md-3 mb-sm-3 auto">
+        <app-enviar-comentario></app-enviar-comentario>
+    </div>
+</div>
+
+<div *ngIf="dataSource" class="row">
+    <div class="col-12">
+        <app-tabla (verDetallesFunction)="verDetalles($event)" [showVerDetalles]="true"  [displayedColumns]="displayedColumns" [displayedColumnsSearch]="displayedColumnsSearch" [searchText]="filtroText" [dataSource]="dataSource" [mensajeResultado]="mensajeResultado"></app-tabla>
+    </div>
+    <ul class="meal-list">
+        <li *ngFor="let meal of asyncMeals | async | paginate: { id: 'server', itemsPerPage: itemPerPage, currentPage: p, totalItems: total }">
+            {{ meal }}
+        </li>
+    </ul>
+
+    <div class="d-flex justify-content-center">
+        <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple"></ngx-spinner>
+        <!-- <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div> -->
+        <pagination-controls  previousLabel="Anterior"
+        nextLabel="Siguiente" [autoHide]="true" [responsive]="true" (pageChange)="getPage($event)" id="server"></pagination-controls>
+    </div>
+</div>
+
+
+<!-- Mensajes -->
+<!-- <swal #cancelSwal title="Cargar un archivo para subir." icon="warning" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal>
+<swal #okSwal title="Archivo enviado correctamente." icon="success" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal> -->
+<swal #failSwal title="Error de conexión." icon="warning" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal>
+<swal #sesionSwal title="Sesión expirada." icon="warning" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal>
+

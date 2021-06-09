@@ -1,0 +1,10 @@
+<div class="table-body">
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let item of displayedColumns; let i = index">
+                <td>{{item}}</td>
+                <td>{{ dataSource[i] }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

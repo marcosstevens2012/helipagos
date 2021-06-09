@@ -1,0 +1,9 @@
+<div class="button custom-select">
+  <select [(ngModel)]="seleccionado" (change)="enviarCantidad()">
+    <option *ngFor="let cantidad of cantidades" [ngValue]="cantidad">
+      {{ cantidad }}
+    </option>
+  </select>
+</div>
+
+

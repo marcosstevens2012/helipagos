@@ -1,0 +1,48 @@
+<div class="material-progress-bar-div" *ngIf="progressbarActive">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="content animated fadeIn">
+    <div class="row justify-content-center">
+        <div class="column  mt-3 col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Descargar</h4>                  
+                </div>
+                <div class="card-body">  
+                    <form class="mt-2" [formGroup]="consultaForm">         
+                        <div class="col-lg-6 col-sm-12 ">
+                            <div class="mb-3 ">
+                                <div class="form-group row ">
+                                    <label class="form-label ">Desde la fecha</label>
+                                    <div class="col-12 ">
+                                        <input (change)="dateChange($event)" (focus)="datepicker()" (blur)="datepicker()" id="from" formControlName="desdeCreacion" class="input form-control" type="date" [ngClass]="{ 'is-invalid': submitted && form.desdeCreacion.errors }">
+                                        <div *ngIf="submitted && dateIsSelected && form.desdeCreacion.errors" class="invalid-feedback">
+                                            <div *ngIf="form.desdeCreacion.errors.required">Este campo es necesario</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 ">
+                            <div class="mb-3 ">
+                                <div class="form-group row ">
+                                    <label class="form-label ">Hasta la fecha</label>
+                                    <div class="col-12 ">
+                                        <input (change)="dateChange($event)" (blur)="datepicker()" id="to" formControlName="hastaCreacion" class="input form-control " type="date" [ngClass]="{ 'is-invalid': submitted && form.hastaCreacion.errors }">
+                                        <div *ngIf="submitted && dateIsSelected && form.hastaCreacion.errors" class="invalid-feedback">
+                                            <div *ngIf="form.hastaCreacion.errors.required">Este campo es necesario</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn buttons btn-green" (click)="onSubmit(consultaForm.value) " type="submit">Descargar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</div>

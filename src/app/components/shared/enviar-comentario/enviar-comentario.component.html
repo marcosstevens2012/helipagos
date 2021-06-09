@@ -1,0 +1,15 @@
+<div class="commentary">
+    <div (click)="showMessage = !showMessage">
+        <i class="fal fa-comment-alt"></i>
+        <p>¿Algún comentario?</p>
+    </div>
+    <div *ngIf="showMessage" class="some-commentary">
+        <form action="">
+            <textarea name="" id="" cols="30" rows="5" placeholder="Ayudanos a mejorar esta página."></textarea>
+            <div class="form-footer">
+                <button>Cancelar</button>
+                <button>Enviar comentarios</button>
+            </div>
+        </form>
+    </div>
+</div>

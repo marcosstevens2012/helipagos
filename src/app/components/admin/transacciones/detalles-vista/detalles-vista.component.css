@@ -1,0 +1,198 @@
+/*Styles*/
+
+
+/* Table content */
+
+.table-container {
+    background-color: white;
+    /* padding: 0px 20px 20px 20px; */
+    padding: 0px;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+
+table {
+    background-color: white;
+    font-size: 13px;
+    font-family: 'Roboto Regular' !important;
+    width: 100%;
+}
+
+table,
+td,
+th,
+thead,
+tr {
+    border: none !important;
+}
+
+
+/*Table header*/
+
+.table-header {
+    padding: 0px;
+    /* border-bottom: 1px rgb(204, 204, 204) solid; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-container .table-header h6 {
+    margin-bottom: 0px;
+    font-weight: 700;
+    color: #717171;
+}
+
+.table-header .col-6 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.table-header button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: white;
+}
+
+.btn-selected {
+    background-color: #eee !important;
+}
+
+.button {
+    text-align: left;
+}
+
+.button:hover {
+    transition: 0.2s;
+    background-color: rgb(204, 204, 204, 0.5) !important;
+}
+
+.button:focus {
+    outline: none;
+}
+
+
+/*Table body*/
+
+.table-body {
+    width: auto;
+    max-width: 100%;
+    overflow: auto;
+    padding: 20px;
+}
+
+table tbody tr:nth-child(1n+1),
+table thead tr:first-of-type {
+    background: #eee;
+}
+
+table tbody tr:nth-child(2n+1) {
+    background: white;
+}
+
+table tr td:first-of-type {
+    font-weight: 700;
+}
+
+
+
+/* Bloque comentario */
+
+
+
+p {
+    float: right;
+    margin-left: 10px;
+}
+
+p, i {
+    cursor: pointer;
+}
+
+.some-commentary {
+    background-color: white;
+    display: grid;
+    color: black;
+    font-size: 15px;
+    border:#c0c0c0;
+    border-style: solid;
+    border-width: 0.1rem;
+    top: 160px;
+    right: 5%;
+}
+
+.some-commentary:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid white;
+    right: 10%;
+    top: -20px;
+}
+
+.some-commentary form textarea {
+    border: none;
+    resize: none;
+    padding: 10px;
+}
+
+.some-commentary form textarea:focus {
+    outline: none;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.4rem 0px;
+    
+    /* background-color: #eee; */
+}
+
+.form-footer button {
+    font-size: 12px;
+    padding: 3px 10px;
+}
+
+
+.form-footer button {
+    background-color: #53BAAB;
+    color: white;
+    border: 0.2px solid #53BAAB;
+}
+
+
+/*Responsive bloque comentario*/
+
+@media (max-width: 991px) {
+    .some-commentary {
+        top: 210px;
+    }
+}
+
+@media (max-width: 500px) {
+    .some-commentary {
+        left: 40px;
+        right: auto;
+        top: 250px;
+    }
+    .some-commentary:before {
+        right: auto;
+        left: 10%;
+        top: -20px;
+    }
+}
+
+/* Responsive general*/
+
+@media (max-width: 767px) {
+    .column {
+        margin-top: 15px;
+    }
+}

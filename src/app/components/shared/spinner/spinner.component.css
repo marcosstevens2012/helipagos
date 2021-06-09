@@ -1,0 +1,24 @@
+@keyframes ldio-fpvmy2ddl2u {
+    0% { transform: rotate(0deg) }
+    50% { transform: rotate(180deg) }
+    100% { transform: rotate(360deg) }
+  }
+  .ldio-fpvmy2ddl2u div {
+    animation: ldio-fpvmy2ddl2u 1s linear infinite;
+    width: 31px;
+    height: 31px;
+    border-radius: 100%;
+    box-shadow: 1px 2px 0 0 #2bde73;
+    margin: 0.5rem;
+  }
+  .loadingio-spinner-eclipse-tmnv4zbqdk9 {
+    display: inline-block;
+    overflow: hidden;
+    background: #ffffff00;
+  }
+  .ldio-fpvmy2ddl2u {
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+  }
+  .ldio-fpvmy2ddl2u div { box-sizing: content-box; }

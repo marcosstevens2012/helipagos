@@ -1,0 +1,45 @@
+<div class="material-progress-bar-div mb-3" >
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="content animated fadeIn">
+    <app-buscador *ngIf="!editar && !crear" (valorBusqueda)="filtrar($event)"></app-buscador>
+    <div class="row">
+        <div class="col-12">
+            <div  *ngIf="!editar && !crear" class="card">
+                <div class="card-header">
+                    <div class="col-12">
+                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearCliente" class="btn btn-green">Nuevo Cliente</button> -->
+                        <button type="button" class="btn btn-green" (click)="nuevoCliente()">Nuevo Cliente</button>
+                    </div>
+                </div>
+                <app-tabla (buttonToken)="modalButtonToken($event)" (editUsuario)="modalEditCliente($event)" (eliminarUsuario)="modalDeleteCliente($event)" [mensajeResultado]="mensajeResultado" [functionUsuarios]="true" [functionCliente]="true" [displayedColumnsSearch]="displayedColumnsSearch" [displayedColumns]="displayedColumns" [searching]="searching" [searchText]="filtroText"
+                    [dataSource]="dataSource"></app-tabla>
+            </div>
+            <div *ngIf="crear" class="card">
+                <app-modal-cliente [btnAcept]="'Registrar'" [cliente]="null" (mostrarLista)="mostrarLista()" (clienteEditado)="crearCliente($event)"></app-modal-cliente>
+            </div>
+            <div *ngIf="editar" class="card">
+                <app-modal-cliente [btnAcept]="'Modificar'" [cliente]="clienteEdit" (mostrarLista)="mostrarLista()" (clienteEditado)="modificarCliente($event)"></app-modal-cliente>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Eliminar cliente -->
+<button type="button" id="btn-delete-cliente" class="btn btn-primary" [hidden]="true" data-bs-toggle="modal" data-bs-target="#eliminarCliente" class="btn btn-green"></button>
+
+<div class="modal fade" id="eliminarCliente" tabindex="-1" aria-labelledby="eliminarCliente" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <app-card [Title]="DeleteTitle" [text]="DeleteText" [showButtons]="true" (aceptar)="deshabilitarCliente()"></app-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<swal #mensajeSwal title icon confirmButtonText cancelButtonText showCancelButton cancelButtonColor confirmButtonColor confirm></swal>

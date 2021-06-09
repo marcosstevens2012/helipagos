@@ -1,0 +1,89 @@
+/*Styles*/
+
+
+/* Table content */
+
+.table-container {
+    background-color: white;
+    padding: 0px 20px 20px 20px;
+}
+
+
+/*Table header*/
+
+.table-header {
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px rgb(204, 204, 204) solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-container .table-header h6 {
+    margin-bottom: 0px;
+    font-weight: 700;
+    color: #717171;
+}
+
+
+/*Table Footer*/
+
+.table-footer {
+    float: right;
+}
+
+.table-footer button {
+    padding: 10px 35px;
+    border: 1px solid rgb(204, 204, 204);
+    font-size: 13px;
+    border-radius: 0px;
+    color: black;
+}
+
+.table-footer button:nth-child(2) {
+    background: #53BAAB;
+    color: white;
+    margin-left: 15px;
+}
+
+
+/** Target */
+
+.target {
+    color: white;
+    padding: 2px 4px;
+    width: 80px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Roboto Regular' !important;
+    height: 22px;
+}
+
+.success {
+    background-color: limegreen;
+}
+
+.error {
+    background-color: orangered;
+}
+
+.cancel {
+    background-color: rgb(84, 84, 84) ;
+}
+
+.info {
+    background-color: rgb(224, 191, 2);
+}
+
+
+/* Responsive */
+
+@media (max-width: 375px) {
+    .table-footer {
+        display: grid;
+        width: 100%;
+    }
+    .table-footer button:nth-child(2) {
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+}

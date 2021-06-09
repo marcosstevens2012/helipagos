@@ -1,0 +1,99 @@
+
+.commentary {
+    text-align: right;
+}
+
+.commentary p {
+    float: right;
+    margin-left: 10px;
+}
+
+.commentary p,
+.commentary i {
+    cursor: pointer;
+}
+
+.commentary .some-commentary {
+    background-color: white;
+    position: absolute;
+    display: grid;
+    color: black;
+    font-size: 15px;
+    -webkit-box-shadow: 0px 5px 6px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 5px 6px 3px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    top: 160px;
+    right: 5%;
+}
+
+.commentary .some-commentary:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid white;
+    right: 10%;
+    top: -20px;
+}
+
+.commentary .some-commentary form textarea {
+    border: none;
+    resize: none;
+    padding: 10px;
+}
+
+.commentary .some-commentary form textarea:focus {
+    outline: none;
+}
+
+.commentary .some-commentary form .form-footer {
+    border: 0.2px solid rgb(204, 204, 204);
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: #eee;
+}
+
+.commentary .some-commentary form .form-footer button {
+    font-size: 12px;
+    padding: 3px 10px;
+}
+
+.commentary .some-commentary form .form-footer button:first-child {
+    border: 0.2px solid rgb(204, 204, 204);
+    background: white;
+}
+
+.commentary .some-commentary form .form-footer button:nth-child(2) {
+    background-color: #53BAAB;
+    color: white;
+    border: 0.2px solid #53BAAB;
+}
+
+
+/*Responsive*/
+
+@media (max-width: 991px) {
+    .commentary .some-commentary {
+        top: 210px;
+    }
+}
+
+@media (max-width: 500px) {
+    .commentary {
+        display: -webkit-inline-box;
+    }
+    .commentary .some-commentary {
+        left: 40px;
+        right: auto;
+        top: 250px;
+    }
+    .commentary .some-commentary:before {
+        right: auto;
+        left: 10%;
+        top: -20px;
+    }
+}

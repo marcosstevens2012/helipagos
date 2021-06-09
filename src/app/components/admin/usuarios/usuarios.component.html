@@ -1,0 +1,44 @@
+<div class="material-progress-bar-div mb-3" *ngIf="loading">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="content animated fadeIn">
+    <app-buscador *ngIf="!editar && !crear" (valorBusqueda)="filtrar($event)"></app-buscador>
+    <div class="row">
+        <div class="col-12">
+            <div *ngIf="!editar && !crear" class="card">
+                <div class="card-header">
+                    <div class="col-12">
+                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearUsuario" class="btn btn-green">Nuevo Usuario</button> -->
+                        <button type="button" class="btn btn-green" (click)="nuevoUsuario()">Nuevo Usuario</button>
+                    </div>
+                </div>
+                <app-tabla (editUsuario)="modalEditUsuario($event)" (eliminarUsuario)="modalDeleteUsuario($event)" [mensajeResultado]="mensajeResultado" [functionUsuarios]="true" [displayedColumnsSearch]="displayedColumnsSearch" [displayedColumns]="displayedColumns" [searchText]="filtroText"
+                    [dataSource]="dataSource"></app-tabla>
+            </div>
+            <div *ngIf="crear" class="card">
+                <app-modal-usuario [btnAcept]="'Registrar'" [usuario]="null" (mostrarLista)="mostrarLista()" (usuarioEditado)="crearUsuario($event)"></app-modal-usuario>
+            </div>
+            <div *ngIf="editar" class="card">
+                <app-modal-usuario [btnAcept]="'Modificar'" [usuario]="userEdit" (mostrarLista)="mostrarLista()" (usuarioEditado)="modificarUsuario($event)"></app-modal-usuario>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Eliminar usuario -->
+<button type="button" id="btn-delete-user" class="btn btn-primary" [hidden]="true" data-bs-toggle="modal" data-bs-target="#eliminarUsuario" class="btn btn-green"></button>
+
+<div class="modal fade" id="eliminarUsuario" tabindex="-1" aria-labelledby="eliminarUsuario" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!-- <app-crear-usuario></app-crear-usuario> -->
+                <app-card [Title]="DeleteTitle" [text]="DeleteText" [showButtons]="true" (aceptar)="deshabilitarUsuario()"></app-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<swal #mensajeSwal title icon confirmButtonText cancelButtonText showCancelButton cancelButtonColor confirmButtonColor></swal>

@@ -1,0 +1,60 @@
+<div class="table-container">
+    <div class="table-header">
+        <h6>{{ mensajeResultado || "Ningún Resultado" }}</h6>
+    </div>
+    <div class="table-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th *ngIf="indiceItems" class="text-wrap text-center" scope="col">
+                        Fila
+                    </th>
+                    <th *ngFor="let head of displayedColumns" class="text-wrap text-center" scope="col">{{ head }} </th>
+                    <th class="text-center detalles" *ngIf="showVerDetalles" scope="col">Detalles</th>
+                    <th class="text-wrap text-center" *ngIf="functionCliente" scope="col"> Generar token</th>
+                    <th class="text-center" *ngIf="functionUsuarios" scope="col"> Editar</th>
+                    <th class="text-center" *ngIf="functionUsuarios" scope="col"> Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let datos of dataSource; index as i;">
+                    <td *ngIf="indiceItems">
+                        <div class="text-center">{{i+1}}</div>
+                    </td>
+
+                    <td *ngFor="let head of displayedColumnsSearch; let i = index">
+                        <div class="text-center" [ngClass]="{'target': head == 'estado',  'error': datos[head] == 'ADEUDADA', 'success': datos[head] == 'ACREDITADA', 'cancel': datos[head] == 'VENCIDA','info': datos[head] == 'DEVUELTA'}">{{ datos[head]||"-" }}</div>
+                    </td>
+
+                     <!--Detalles Transacción-->
+                     <td class="detalles text-center" *ngIf="showVerDetalles">
+                        <button class="btn-details" (click)="verDetalles(datos['numero'])">
+                            <i class="fal fa-search-plus"></i>
+                        </button>   
+                    </td>
+                    <!-- Cliente -->
+                    <!--Crear token-->
+                    <td class="text-center" *ngIf="functionCliente">
+                        <button class="btn-details" (click)="modalButtonToken(datos['id'])">
+                            <i class="fad fa-sync-alt"></i>
+                        </button>
+                    </td>
+                    <!--Usuarios-->
+                    <!--Editar Usuario-->
+                    <td class="text-center" *ngIf="functionUsuarios">
+                        <button class="btn-details" (click)="modalEdit(datos['id'])">
+                            <i class="fal fa-user-edit"></i>
+                        </button>
+                    </td>
+                    <!--Eliminar Usuario-->
+                    <td class="text-center" *ngIf="functionUsuarios">
+                        <button class="btn-delete" (click)="modalDelete(datos['id'])">
+                            <i class="fal fa-user-times"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

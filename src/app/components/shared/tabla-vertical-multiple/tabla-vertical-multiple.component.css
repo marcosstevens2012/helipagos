@@ -1,0 +1,38 @@
+/*Styles*/
+
+table {
+    background-color: white;
+    font-size: 13px;
+    font-family: 'Roboto Regular' !important;
+    width: 100%;
+}
+
+table,
+td,
+th,
+thead,
+tr {
+    border: none !important;
+}
+
+
+/*Table body*/
+
+.table-body {
+    width: auto;
+    max-width: 100%;
+    overflow: auto;
+}
+
+table tbody tr:nth-child(1n+1),
+table thead tr:first-of-type {
+    background: #eee;
+}
+
+table tbody tr:nth-child(2n+1) {
+    background: white;
+}
+
+.table-body table tr td:first-of-type {
+    font-weight: 700;
+}

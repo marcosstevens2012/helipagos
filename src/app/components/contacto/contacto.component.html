@@ -1,0 +1,62 @@
+
+<div class="content animated fadeIn">
+    <div class="row  justify-content-center">
+        <div class="column  mt-3 col-lg-8">
+            <!--Contáctanos-->
+            <div class="card">
+                <div class="card-header">
+                    <h4>Contáctanos</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="contactoForm" (ngSubmit)="onSend(contactoForm.value)">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="nombre" class="form-label">Nombre</label>
+                                        <input type="text" formControlName="nombre" placeholder="Ingrese su nombre" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="apellido" class="form-label">Apellido</label>
+                                        <input type="text" formControlName="apellido" placeholder="Ingrese su apellido" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="text" formControlName="email" placeholder="Ingrese su Email" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="numeroContacto" class="form-label">Número de contacto</label>
+                                        <input type="text" digitOnly inputmode="numeric" formControlName="numeroContacto" placeholder="Ingrese su número" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="mensaje" class="form-label">Mensaje:</label>
+                                        <textarea class="form-control" formControlName="mensaje" id="mensaje" placeholder="Ingrese su mensaje aquí. Nosotros nos comunicaremos a la brevedad." rows="7"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="buttons mt-4">
+                            <button type="button" class="btn btn-white" (click)="limpiar()">Limpiar</button>
+                            <button type="submit" class="btn btn-green ml-15 ">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<swal #failSwal title="Completar todos los campos." icon="warning" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal>
+<swal #successSwal title="Mensaje enviado!" icon="success" confirmButtonText="Aceptar" confirmButtonColor="#53BAAB"></swal>

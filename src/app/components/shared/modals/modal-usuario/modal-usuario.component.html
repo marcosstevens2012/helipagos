@@ -1,0 +1,108 @@
+
+<div class="text-center pt-3 pb-3 bg-gray">
+    <h3 *ngIf="!usuario" class="text-white">Nuevo Usuario</h3>
+    <h3 *ngIf="usuario" class="text-white">Modificar Usuario</h3>
+</div>
+
+<div class="container">
+    <form [formGroup]="loginForm">
+        <div class="row ">
+            <div class="col-md-4 col-sm-12 mt-3">
+                <div class="mb-3 form-email">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input formControlName="nombre" type="text" class="form-control" placeholder="{{placeholder.nombre}}" id="nombre" autocomplete="off" >
+                </div>
+                <div *ngIf="loginForm.controls['nombre'].invalid && (loginForm.controls['nombre'].dirty || loginForm.controls['nombre'].touched)"
+                    class="validacion-error">
+                    <div *ngIf="loginForm.controls['nombre'].errors.required">
+                        Nombre Requerido.
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="col-md-4 col-sm-12 mt-3">
+                <div class="mb-3 form-email">
+                    <label for="username" class="form-label">Usuario</label>
+                    <input formControlName="username" type="text" class="form-control" placeholder="{{placeholder.username}}" id="username" autocomplete="off">
+                </div>
+                <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)"
+                    class="validacion-error">
+                    <div *ngIf="loginForm.controls['username'].errors.required">
+                        Usuario Requerido.
+                    </div>
+                    <div *ngIf="loginForm.controls['username'].errors.minlength">
+                        El Usuario debe tener al menos 4 caracteres.
+                    </div>
+                    <div *ngIf="loginForm.controls['username'].errors.maxlength">
+                        El Usuario debe tener menos de 60 caracteres.
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="col-md-4 col-sm-12 mt-3">
+                <div class="mb-3 form-email">
+                    <label for="email" class="form-label">Email</label>
+                    <input formControlName="email" type="email" class="form-control" placeholder="{{placeholder.email}}" id="email" autocomplete="off" email>
+                </div>
+                <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
+                    class="validacion-error">
+                    <div *ngIf="loginForm.controls['email'].errors.required">
+                        Email Requerido.
+                    </div>
+                    <div *ngIf="loginForm.controls['email'].errors.email">
+                        El email no es válido.
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-4 col-sm-12 mt-3">
+                <div *ngIf="btnAcept != 'Modificar'" class="mb-3 form-password">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input formControlName="password" #password type="password" class="form-control" placeholder="Contraseña" id="password">
+                </div>
+                <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+                    class="validacion-error">
+                    <div *ngIf="loginForm.controls['password'].errors.required">
+                        Contraseña Requerida.
+                    </div>
+                    <div *ngIf="loginForm.controls['password'].errors.minlength">
+                        La contraseña debe tener al menos 9 caracteres.
+                    </div>
+                    <div *ngIf="loginForm.controls['password'].errors.maxlength">
+                        La contraseña debe tener menos de 60 caracteres.
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-4 col-sm-12 mt-3">
+                <div class="mb-3 form-password">
+                    <label for="rol" class="form-label">Roles</label>
+                    <select formControlName="rol" class="form-select">
+                        <option selected disabled hidden>Seleccione el rol</option>
+                        <option >ADMIN</option>
+                        <option >USER</option>
+                    </select>
+                </div>
+            </div>
+        
+            <div class="col-md-4 col-sm-12 mt-3">
+                <div class="mb-3 form-email">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select formControlName="estado" class="form-select">
+                        <option selected disabled hidden>Seleccione el estado</option>
+                        <option>Habilitado</option>
+                    </select>
+                </div>
+            </div>
+    
+        <div class="modal-footer mt-3">
+            <button type="button" class="btn buttons" (click)="atras()">Volver</button>
+            <button type="button" class="btn buttons btn-green" (click)="onSubmit()">{{ btnAcept }}</button>
+            <app-spinner *ngIf="showSpinner"></app-spinner>
+        </div>
+        
+        </div>
+    </form>
+</div>

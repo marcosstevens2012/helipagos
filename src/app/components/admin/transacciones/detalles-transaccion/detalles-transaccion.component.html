@@ -1,0 +1,17 @@
+<div *ngIf="detalle" class="card">
+    <div class="table-container">
+        <div class="table-header">
+            <h6>Transacción Nro. {{ id }}</h6>
+            <div [ngClass]="{'error': detalle.solicitud_estado.descripcion == 'ADEUDADA', 'cancel': detalle.solicitud_estado.descripcion == 'ACREDITADA', 'cancel': detalle.solicitud_estado.descripcion == 'VENCIDA', 'info': detalle.solicitud_estado.descripcion == 'DEVUELTA'}" class="target success">
+                {{detalle.solicitud_estado.descripcion}}
+            </div>
+        </div>
+        <!--Tabla Start-->
+        <app-tabla-vertical [displayedColumns]="displayedColumns" [dataSource]="dataSource"></app-tabla-vertical>
+        <!--Tabla End-->
+        <div class="table-footer">
+            <button (click)="Volver()">Volver</button>
+            <button>Imprimir</button>
+        </div>
+    </div>
+</div>

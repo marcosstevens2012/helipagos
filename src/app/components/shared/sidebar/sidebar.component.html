@@ -1,0 +1,69 @@
+<div class="sidebar" id="sidebar">
+    <div class="brand">
+        <img src="../../../assets/img/logo-helipagos.svg" alt="">
+    </div>
+    <div class="sidebar-content">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#miCuenta" aria-expanded="true" aria-controls="flush-collapseTwo">
+            <a routerLinkActive="active" *ngIf="isAuthorized" (click)="cambioUrl('miCuenta')" [routerLink]="['miCuenta']"><i class="fad fa-home-lg-alt"></i> Mi cuenta</a>
+        </button>
+        <div id="miCuenta" class="accordion-collapse collapse"  [ngClass]="{'show': url == 'miCuenta'}" aria-labelledby="flush-headingTwo">
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('miCuenta')" *ngIf="isAuthorized" [routerLink]="['saldos']">Saldos</a>
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('miCuenta')" *ngIf="isAuthorized" [routerLink]="['movimientos']">Movimientos</a>
+        </div>
+      
+        <a class="link" routerLinkActive="active" (click)="cambioUrl('pagos')" *ngIf="isAuthorized" [routerLink]="['pagos']">
+            <i class="fad fa-money-bill"></i>Pagos</a>
+
+        <a class="link" *ngIf="isAdmin" routerLinkActive="active" (click)="cambioUrl('consulta')" [routerLink]="['transacciones/consulta']" [routerLinkActiveOptions]="{ exact: false }">
+            <i class="fad fa-sort-alt"></i>Solicitud de pago</a>
+
+        <button class="accordion-button collapsed" *ngIf="isAdmin" type="button" data-bs-toggle="collapse" data-bs-target="#archivoTransmision" aria-expanded="false" aria-controls="flush-collapseTwo">
+            <a routerLinkActive="active" *ngIf="isAuthorized" (click)="cambioUrl('transacciones')" [routerLink]="['transacciones/archivosTransmision/']"><i class="fad fa-file-import"></i> Archivos de transmisión</a>
+        </button>
+
+        <div id="archivoTransmision" class="accordion-collapse collapse"  [ngClass]="{'show': url == 'transacciones'}" aria-labelledby="flush-headingTwo">
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('transacciones')" *ngIf="isAuthorized" [routerLink]="['transacciones/archivosTransmision/rapipago']">Rapipago</a>
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('transacciones')" *ngIf="isAuthorized" [routerLink]="['transacciones/archivosTransmision/pagofacil']">Pago Fácil</a>
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('transacciones')" *ngIf="isAuthorized" [routerLink]="['transacciones/archivosTransmision/provincianet']">Provincia Net</a>
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('transacciones')" *ngIf="isAuthorized" [routerLink]="['transacciones/archivosTransmision/multipago']">Multipago</a>
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('transacciones')" *ngIf="isAuthorized" [routerLink]="['transacciones/archivosTransmision/ripsa']">Ripsa</a>
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('transacciones')" *ngIf="isAuthorized" [routerLink]="['transacciones/archivosTransmision/bicaagil']">Bica Ágil</a>
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('transacciones')" *ngIf="isAuthorized" [routerLink]="['transacciones/archivosTransmision/cobroexpress']">Cobro Express</a>
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('transacciones')" *ngIf="isAuthorized" [routerLink]="['transacciones/archivosTransmision/prontopago']">Pronto Pago</a>
+            <a class="link" routerLinkActive="active" (click)="cambioUrl('archivoBase')" *ngIf="isAuthorized" [routerLink]="['transacciones/archivoBase']">Archivo Base</a>
+
+        </div>
+
+       
+        <!-- <button class="accordion-button collapsed" *ngIf="isAdmin" type="button" data-bs-toggle="collapse" data-bs-target="#usuarios" aria-expanded="false" aria-controls="flush-collapseTwo">
+            <a routerLinkActive="active"  [routerLink]="['usuarios']"><i class="fad fa-home-lg-alt"></i> Usuarios</a>
+        </button>
+        <div id="usuarios" *ngIf="isAdmin" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo">
+            <a class="link" routerLinkActive="active" [routerLink]="['abm_usuarios']">ABM</a>
+        </div> -->
+        <a class="link" *ngIf="isAdmin" routerLinkActive="active" (click)="cambioUrl('usuarios')" [routerLink]="['usuarios']">
+            <i class="fad fa-users"></i>Usuarios</a>
+        
+        <a class="link" *ngIf="isAdmin" routerLinkActive="active" (click)="cambioUrl('clientes')" [routerLink]="['clientes']">
+            <i class="fad fa-users-cog"></i>Clientes</a>
+
+        <a routerLinkActive="active" (click)="cambioUrl('estadisticas')" *ngIf="isAdmin" [routerLink]="['estadisticas']">
+            <i class="fad fa-chart-pie-alt"></i>Estadísticas</a>
+
+        <a class="link" *ngIf="isAdmin" routerLinkActive="active" (click)="cambioUrl('liquidacion')" [routerLink]="['liquidacion']" [routerLinkActiveOptions]="{ exact: false }">
+            <i i class="fad fa-money-check-edit-alt"></i>Liquidación</a>
+
+        <a class="link" *ngIf="isAdmin" routerLinkActive="active" (click)="cambioUrl('facturacion')" [routerLink]="['facturacion']" [routerLinkActiveOptions]="{ exact: false }">
+            <i class="fad fa-file-invoice-dollar"></i>Facturación</a>
+
+        <a class="link" (click)="cambioUrl('informes')" *ngIf="isAdmin">
+            <i class="fad fa-file-chart-line"></i>Informes</a>
+
+        <a class="link" (click)="cambioUrl('configuracion')" *ngIf="isAuthorized">
+            <i class="fad fa-cogs"></i>Configuración</a>
+
+        <a class="link" *ngIf="isAuthorized" routerLinkActive="active" (click)="cambioUrl('contacto')" [routerLink]="['contacto']">
+            <i class="fad fa-envelope"></i>Contacto</a>
+
+    </div>
+</div>

@@ -1,0 +1,47 @@
+/* Styles */
+
+.search {
+    border-radius: 10px;
+    padding-right: 15px;
+    background-color: white;
+    display: flex;
+}
+
+.search i {
+    padding: 10px;
+    padding-top: 13px;
+}
+
+.search input {
+    border: none;
+    width: 100%;
+    font-family: 'Roboto Regular' !important;
+}
+
+.search input:focus {
+    border: none;
+    outline: none;
+}
+
+.search input::placeholder {
+    font-weight: 100;
+    font-family: 'Roboto Regular' !important;
+    color: #717171
+}
+
+
+.saludo h1 {
+    color: #717171;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/*Responsive*/
+
+
+@media (min-width: 500px) {
+    .saludo h1 {
+        display: none;
+    }
+}
+

@@ -1,0 +1,122 @@
+
+.card {
+    border: 0px;
+    border-radius: 10px;
+}
+
+.card-header {
+    border-radius: 10px 10px 0px 0px;
+    background-color: white;
+    border-bottom: 2px solid #eee;
+}
+
+.card-header h4 {
+    margin-bottom: 0px;
+    color: #717171;
+    font-size: 18px;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+.card-body p {
+    font-size: 12px;
+    color: #717171;
+}
+
+
+/* Form */
+
+form label {
+    font-size: 13px;
+}
+
+form .input-simulate {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0px;
+}
+
+form .input-simulate small {
+    display: none;
+    position: absolute;
+    top: 125px;
+}
+
+form .input-material {
+    border: none;
+    padding: 0px;
+}
+
+form .input-material:focus {
+    outline: none;
+}
+
+form .input,
+form .input-simulate {
+    padding: 10px 20px;
+    border-color: rgb(204, 204, 204);
+    font-size: 13px;
+    border-radius: 10px;
+    color: #717171;
+}
+
+form input[type=text] {
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 10px 20px;
+}
+
+form input[type=text]::placeholder {
+    font-size: 12px;
+    color: #717171;
+}
+
+form select {
+    font-size: 13px;
+    padding: 10px 20px;
+    border-color: rgb(204, 204, 204);
+    border-radius: 10px;
+}
+
+form select:disabled {
+    color: #717171;
+}
+
+.input[placeholder] {
+    text-overflow: ellipsis;
+}
+
+form input[type="date"] {
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+form input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    transform: translateX(-35px);
+}
+
+form input::-webkit-datetime-edit {
+    position: relative;
+    left: 20px;
+    color: #717171;
+    font-size: 12px;
+}
+
+form .border-red {
+    border: 1px solid #dc3545;
+}
+
+/* Buttons */
+
+.buttons {
+    float: right;
+    padding-top: 5px;
+}
+
+
+.ml-15 {
+    margin-left: 15px;
+}

@@ -1,0 +1,12 @@
+<div class="saludo">
+    <h1>{{ header }}</h1>
+</div>
+<!--Busqueda-->
+<form>
+    <div class="search mb-3">
+        <i class="fal fa-search"></i>
+        <!-- <input placeholder="Buscar" style="font-family:sans-serif, FontAwesome" type="search"> -->
+        <input placeholder="Buscar" style="font-family:sans-serif, FontAwesome" (keyup)="buscarDato(buscarTexto.value)" type="search" #buscarTexto>
+    </div>
+</form>
+

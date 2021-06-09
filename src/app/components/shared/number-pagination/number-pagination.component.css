@@ -1,0 +1,23 @@
+
+
+select{
+    border-radius: 10px;
+    padding-right: 15px;
+    background-color: white;
+    display: flex;
+    border: none;
+    padding: 0.5rem;
+    font-family: 'Roboto Regular' !important;
+
+}
+
+
+@media (max-width: 991px) {
+
+}
+
+@media (max-width: 500px) {
+    select{
+        margin-bottom: 1rem;
+    }
+}

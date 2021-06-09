@@ -1,0 +1,290 @@
+
+.card {
+    border: 0px;
+    border-radius: 10px;
+}
+
+.card-header {
+    border-radius: 10px 10px 0px 0px;
+    background-color: white;
+    border-bottom: 2px solid #eee;
+}
+
+.card-header h4 {
+    margin-bottom: 0px;
+    color: #717171;
+    font-size: 18px;
+}
+
+.card-body {
+    padding: 1.5rem 3rem 3rem 3rem;
+}
+
+.card-body p {
+    font-size: 12px;
+    color: #717171;
+}
+
+
+/* Form */
+
+form label {
+    font-size: 13px;
+}
+
+form .input-simulate {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0px;
+}
+
+form .input-simulate small {
+    display: none;
+    position: absolute;
+    top: 125px;
+}
+
+form .input-material {
+    border: none;
+    padding: 0px;
+}
+
+form .input-material:focus {
+    outline: none;
+}
+
+form .input,
+form .input-simulate {
+    padding: 10px 20px;
+    border-color: rgb(204, 204, 204);
+    font-size: 13px;
+    border-radius: 10px;
+    color: #717171;
+}
+
+form input[type=text] {
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 10px 20px;
+}
+
+form input[type=text]::placeholder {
+    font-size: 12px;
+    color: #717171;
+}
+
+form select {
+    font-size: 13px;
+    padding: 10px 20px;
+    border-color: rgb(204, 204, 204);
+    border-radius: 10px;
+}
+
+form select:disabled {
+    color: #717171;
+}
+
+.input[placeholder] {
+    text-overflow: ellipsis;
+}
+
+form input[type="date"] {
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+form input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    transform: translateX(-35px);
+}
+
+form input::-webkit-datetime-edit {
+    position: relative;
+    left: 20px;
+    color: #717171;
+    font-size: 12px;
+}
+
+form .border-red {
+    border: 1px solid #dc3545;
+}
+
+
+/* Material */
+
+.mat-standard-chip {
+    min-height: 20px !important;
+    font-size: 13px;
+}
+
+.mat-chip.mat-standard-chip {
+    background-color: #bae3dd;
+}
+
+.mat-chip.mat-standard-chip:hover {
+    background-color: #98d6cd;
+}
+
+form .box-input-numbers .is-invalid {
+    border-color: #dc3545 !important;
+    padding-right: calc(.75em + 2.3125rem);
+    background-position: right .75rem center, center right 1.75rem;
+    background-size: 16px 12px, calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.on-focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+.on-focus-invalidate {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
+}
+
+
+/* Buttons */
+
+.buttons {
+    float: left;
+    margin-top: 10px;
+}
+
+div .col-lg-12 .buttons{
+    float: right
+}
+
+/* .btn {
+    padding: 10px 35px;
+    border: 1px solid rgb(204, 204, 204);
+    font-size: 13px;
+    color: black;
+}
+
+.buttons button:nth-child(2) {
+    background: #53BAAB;
+    color: white;
+} */
+
+.ml-15 {
+    margin-left: 15px;
+}
+
+.detalle-container{
+    background-color: white;
+    font-size: 13px;
+    font-family: 'Roboto Regular' !important;
+    width: 100%;
+}
+
+
+
+.rapipago, .bicaagil, .multipago {
+    width: 7rem;
+    height: auto;
+}
+
+.pagofacil{
+    width: 3rem;
+    height: auto;
+}
+
+.provincianet, .ripsa{
+    width: 6rem;
+    height: auto;
+}
+
+.disabled{
+    pointer-events: none;
+}
+
+
+.alineacion a {
+    align-items: center;
+    display: grid;
+    height: 5rem;
+    border: 1px solid hsla(0, 0%, 44%, 0.357);
+    border-radius: 10px;
+    justify-items: center;
+}
+
+.alineacion a:hover{
+    background-color: #dadada4d;
+}
+
+
+
+/* prograssbar */
+
+
+.material-progress-bar-div{
+    margin-right: -3rem;
+    margin-top: -3rem;
+    margin-left: -2rem;
+    margin-bottom: 3rem;
+}
+
+
+.mat-progress-bar-fill::after{
+    background-color: #53BAAB;
+  }
+
+
+
+/** Responsive **/
+
+@media (max-width: 767px) {
+    .row .column:nth-child(2) {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .btn {
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    .btn {
+        padding: 10px 25px;
+    }
+    .ml-15 {
+        margin-left: 10px;
+    }
+    .card-body {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 375px) {
+    .buttons {
+        display: grid;
+        width: 100%;
+    }
+    .ml-15 {
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 1120px) and (min-width: 993px){
+    .rapipago, .bicaagil, .multipago {
+        width: 5rem;
+        height: auto;
+    }
+    
+    .pagofacil{
+        width: 2rem;
+        height: auto;
+    }
+    
+    .provincianet, .ripsa{
+        width: 4rem;
+        height: auto;
+    }
+}
+
